@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="87eb42b2-4c1a-4189-a84c-003ac1d4e765" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1nY9nJIbsPKy6xusrUmJSIVidYQ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/checkstyle.xml" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.53315413" />
+    <property name="settings.editor.selected.configurable" value="org.infernus.idea.checkstyle.CheckStyleConfigurable" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="87eb42b2-4c1a-4189-a84c-003ac1d4e765" name="Default Changelist" comment="" />
+      <created>1611556322713</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611556322713</updated>
+    </task>
+    <task id="LOCAL-00001" summary="0. Техническое задание. Аргегатора Java Вакансий.[260357#336005]&#10;mvn init">
+      <created>1611558591273</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1611558591273</updated>
+    </task>
+    <task id="LOCAL-00002" summary="0. Техническое задание. Аргегатора Java Вакансий.[260357#336005]&#10;travis, jacoco">
+      <created>1611559047982</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1611559047982</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="0. Техническое задание. Аргегатора Java Вакансий.[260357#336005]&#10;mvn init" />
+    <MESSAGE value="0. Техническое задание. Аргегатора Java Вакансий.[260357#336005]&#10;travis, jacoco" />
+    <option name="LAST_COMMIT_MESSAGE" value="0. Техническое задание. Аргегатора Java Вакансий.[260357#336005]&#10;travis, jacoco" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="600" y="130" width="777" height="854" key="CommitChangelistDialog2" timestamp="1611559047847">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="600" y="130" width="777" height="854" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1611559047847" />
+    <state x="776" y="300" width="424" height="520" key="FileChooserDialogImpl" timestamp="1611556479973">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="776" y="300" width="424" height="520" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1611556479973" />
+    <state x="482" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1611557733506">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="482" y="188" width="1022" height="737" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1611557733506" />
+    <state x="588" y="278" width="800" height="558" key="Vcs.Push.Dialog.v2" timestamp="1611559049384">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="588" y="278" width="800" height="558" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1611559049384" />
+    <state x="649" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1611556352502">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="649" y="381" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1611556352502" />
+  </component>
+</project>
