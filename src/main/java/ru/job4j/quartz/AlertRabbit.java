@@ -3,9 +3,6 @@ package ru.job4j.quartz;
 import java.sql.*;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
@@ -14,15 +11,20 @@ import static org.quartz.TriggerBuilder.*;
 import static org.quartz.SimpleScheduleBuilder.*;
 
 public class AlertRabbit {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         final String propFileName = "rabbit.properties";
 
         Properties p = new Properties();
-        InputStream is = AlertRabbit.class.getClassLoader().getResourceAsStream(propFileName);
-        if (is != null) {
-            p.load(is);
-        } else {
-            throw new FileNotFoundException("property file " + propFileName + " is not found");
+        try (InputStream is = AlertRabbit.class.getClassLoader().getResourceAsStream(propFileName)) {
+            if (is != null) {
+                p.load(is);
+            } else {
+                System.out.print("property file " + propFileName + " is not found");
+                return;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
         }
 
         final String timeInterval = p.getProperty("rabbit.interval");
