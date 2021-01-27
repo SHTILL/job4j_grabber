@@ -1,18 +1,16 @@
 package ru.job4j.grabber;
 
-import java.text.DateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class DateParser {
     static Calendar parseDateString(String sqlRuDate) {
-        Pattern p1 = Pattern.compile("^\\d++ [\\p{Ll}]++ \\d++, \\d\\d:\\d\\d$");
+        Pattern p1 = Pattern.compile("^\\d{1,2}+ [\\p{Ll}]++ \\d{2,3}+, \\d{1,2}+:\\d{1,2}+$");
         Matcher m1 = p1.matcher(sqlRuDate);
         boolean p1IsMatched = m1.matches();
 
-        Pattern p2 = Pattern.compile("^[\\p{Ll}]{5,7}+, \\d\\d:\\d\\d$");
+        Pattern p2 = Pattern.compile("^[\\p{Ll}]{5,7}+, \\d{1,2}+:\\d{1,2}+$");
         Matcher m2 = p2.matcher(sqlRuDate);
         boolean p2IsMatched = m2.matches();
 
