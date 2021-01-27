@@ -10,11 +10,11 @@ public class SqlRuParse {
         Document doc = Jsoup.connect("https://www.sql.ru/forum/job-offers").get();
         Elements topics = doc.select(".postslisttopic");
         Elements dates = doc.select(".altCol");
-        for (int i = 1, j = 0; i < dates.size(); i += 2, j++) {
-            Element href = topics.get(j).child(0);
+        for (int i = 0, j = 1; i < topics.size(); i++, j += 2) {
+            Element href = topics.get(i).child(0);
             System.out.println(href.attr("href"));
             System.out.println(href.text());
-            Element date = dates.get(i);
+            Element date = dates.get(j);
             System.out.println(date.text());
         }
     }
