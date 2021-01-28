@@ -1,11 +1,13 @@
-package ru.job4j.html;
+package ru.job4j.grabber;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class SqlRuParse {
+import java.util.List;
+
+public class SqlRuParse implements Parse {
     public static void main(String[] args) throws Exception {
         for (int p = 1; p <= 5; p++) {
             Document doc = Jsoup.connect("https://www.sql.ru/forum/job-offers/" + p).get();
@@ -19,5 +21,15 @@ public class SqlRuParse {
                 System.out.println(date.text());
             }
         }
+    }
+
+    @Override
+    public List<Post> list(String link) {
+        return null;
+    }
+
+    @Override
+    public Post detail(String link) {
+        return null;
     }
 }

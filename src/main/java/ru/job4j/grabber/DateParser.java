@@ -1,10 +1,28 @@
 package ru.job4j.grabber;
 
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class DateParser {
+    final static HashMap<String, Integer> MONTHS;
+    static {
+        MONTHS = new HashMap<>();
+        MONTHS.put("янв", Calendar.JANUARY);
+        MONTHS.put("фев", Calendar.FEBRUARY);
+        MONTHS.put("мар", Calendar.MARCH);
+        MONTHS.put("апр", Calendar.APRIL);
+        MONTHS.put("май", Calendar.MAY);
+        MONTHS.put("июн", Calendar.JUNE);
+        MONTHS.put("июл", Calendar.JULY);
+        MONTHS.put("авг", Calendar.AUGUST);
+        MONTHS.put("сен", Calendar.SEPTEMBER);
+        MONTHS.put("окт", Calendar.OCTOBER);
+        MONTHS.put("ноя", Calendar.NOVEMBER);
+        MONTHS.put("дек", Calendar.DECEMBER);
+    }
+
     static Calendar parseDateString(String sqlRuDate) {
         Pattern p1 = Pattern.compile("^\\d{1,2}+ [\\p{Ll}]++ \\d{2,3}+, \\d{2}+:\\d{2}+$");
         Matcher m1 = p1.matcher(sqlRuDate);
@@ -35,47 +53,10 @@ class DateParser {
             }
             int day   = Integer.parseInt(dateTokens[0]);
             int year  = 2000 + Integer.parseInt(dateTokens[2]);
-            int month;
-            switch (dateTokens[1]) {
-                case "янв":
-                    month = Calendar.JANUARY;
-                    break;
-                case "фев":
-                    month = Calendar.FEBRUARY;
-                    break;
-                case "мар":
-                    month = Calendar.MARCH;
-                    break;
-                case "апр":
-                    month = Calendar.APRIL;
-                    break;
-                case "май":
-                    month = Calendar.MAY;
-                    break;
-                case "июн":
-                    month = Calendar.JUNE;
-                    break;
-                case "июл":
-                    month = Calendar.JULY;
-                    break;
-                case "авг":
-                    month = Calendar.AUGUST;
-                    break;
-                case "сен":
-                    month = Calendar.SEPTEMBER;
-                    break;
-                case "окт":
-                    month = Calendar.OCTOBER;
-                    break;
-                case "ноя":
-                    month = Calendar.NOVEMBER;
-                    break;
-                case "дек":
-                    month = Calendar.DECEMBER;
-                    break;
-                default:
-                    return null;
+            if (!MONTHS.containsKey(dateTokens[1])) {
+                return null;
             }
+            int month = MONTHS.get(dateTokens[1]);
             c.set(year, month, day);
         }
         if (p2IsMatched) {
