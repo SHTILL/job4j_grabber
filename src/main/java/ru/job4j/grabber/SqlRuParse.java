@@ -21,7 +21,7 @@ public class SqlRuParse implements Parse {
             Elements topics = doc.select(".postslisttopic");
             for (int i = 3; i < topics.size(); i++) {
                 Element href = topics.get(i).child(0);
-                ads.add(new Post(href.attr("href")));
+                ads.add(new Post(href.attr("href"), href.text()));
             }
         } catch (IOException e) {
             System.out.printf("Error while connecting to the link %s" + System.lineSeparator(), adsLink + page);
@@ -62,7 +62,6 @@ public class SqlRuParse implements Parse {
                 if (details == null) {
                     return;
                 }
-                ad.setName(details.getName());
                 ad.setCreated(details.getCreated());
                 ad.setText(details.getText());
             }

@@ -45,7 +45,7 @@ public class PsqlStore implements Store {
             ps.setDate(4, new Date(post.getCreated().getTimeInMillis()));
             ps.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("Exception while saving data into DB");
+            //System.out.println("Exception while saving data into DB");
         }
     }
 

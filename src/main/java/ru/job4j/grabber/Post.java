@@ -9,8 +9,9 @@ public class Post {
     private String   link;
     private Calendar created;
 
-    public Post(String link) {
+    public Post(String link, String name) {
         this.link = link;
+        this.name = name;
     }
 
     public Post(String text, Calendar created) {
