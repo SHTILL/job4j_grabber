@@ -37,8 +37,7 @@ public class PsqlStore implements Store {
 
     @Override
     public void save(Post post) {
-        try {
-            PreparedStatement ps = cn.prepareStatement("insert into post(name, text, link, created) values(?, ?, ?, ?)");
+        try (PreparedStatement ps = cn.prepareStatement("insert into post(name, text, link, created) values(?, ?, ?, ?)")) {
             ps.setString(1, post.getName());
             ps.setString(2, post.getText());
             ps.setString(3, post.getLink());
