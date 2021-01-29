@@ -9,17 +9,24 @@ public class Post {
     private String   link;
     private Calendar created;
 
+    public Post(String link) {
+        this.link = link;
+    }
+
     public Post(String text, Calendar created) {
         this.text = text;
         this.created = created;
     }
 
-    public String getLink() {
-        return link;
+    public Post(String name, String text, String link, Calendar created) {
+        this.name = name;
+        this.text = text;
+        this.link = link;
+        this.created = created;
     }
 
-    public Post(String link) {
-        this.link = link;
+    public String getLink() {
+        return link;
     }
 
     public String getName() {
