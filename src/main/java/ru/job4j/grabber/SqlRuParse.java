@@ -7,7 +7,6 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class SqlRuParse implements Parse {
@@ -21,7 +20,7 @@ public class SqlRuParse implements Parse {
             Elements topics = doc.select(".postslisttopic");
             for (int i = 3; i < topics.size(); i++) {
                 Element href = topics.get(i).child(0);
-                ads.add(new Post(href.attr("href"), href.text()));
+                ads.add(new Post(href.text(), null, href.attr("href"), null));
             }
         } catch (IOException e) {
             System.out.printf("Error while connecting to the link %s" + System.lineSeparator(), adsLink + page);
@@ -34,12 +33,12 @@ public class SqlRuParse implements Parse {
     public Post detail(String link) {
         try {
             Document postDoc = Jsoup.connect(link).get();
-            Elements textElements = postDoc.getElementsByClass("msgBody");
-            String text = textElements.get(1).text();
+            Elements descriptionElements = postDoc.getElementsByClass("msgBody");
+            String description = descriptionElements.get(1).text();
             Elements footerElements = postDoc.getElementsByClass("msgFooter");
             Element createdElement = footerElements.get(0);
             String created = createdElement.ownText().replaceAll(" \\[] \\|$", "");
-            return new Post(text, DateParser.parseDateString(created));
+            return new Post(null, description, null, DateParser.parseDateString(created));
         } catch (IOException e) {
             System.out.printf("Error while connecting to the link %s" + System.lineSeparator(), link);
         }
@@ -63,7 +62,7 @@ public class SqlRuParse implements Parse {
                     return;
                 }
                 ad.setCreated(details.getCreated());
-                ad.setText(details.getText());
+                ad.setDescription(details.getDescription());
             }
             allPosts.addAll(ads);
         }

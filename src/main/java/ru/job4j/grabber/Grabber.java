@@ -80,7 +80,7 @@ public class Grabber implements Grab {
                         return;
                     }
                     ad.setCreated(details.getCreated());
-                    ad.setText(details.getText());
+                    ad.setDescription(details.getDescription());
                 }
                 allPosts.addAll(ads);
             }

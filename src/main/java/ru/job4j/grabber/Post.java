@@ -4,24 +4,15 @@ import java.text.DateFormat;
 import java.util.Calendar;
 
 public class Post {
+    private int id;
     private String   name;
-    private String   text;
+    private String   description;
     private String   link;
     private Calendar created;
 
-    public Post(String link, String name) {
-        this.link = link;
+    public Post(String name, String description, String link, Calendar created) {
         this.name = name;
-    }
-
-    public Post(String text, Calendar created) {
-        this.text = text;
-        this.created = created;
-    }
-
-    public Post(String name, String text, String link, Calendar created) {
-        this.name = name;
-        this.text = text;
+        this.description = description;
         this.link = link;
         this.created = created;
     }
@@ -34,16 +25,12 @@ public class Post {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getDescription() {
+        return description;
     }
 
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Calendar getCreated() {
@@ -54,13 +41,22 @@ public class Post {
         this.created = created;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "Post{"
                 + "created=" + DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.SHORT).format(created.getTime())  + '\''
                 + ", name='" + name + '\''
-                + ", text='" + text + '\''
-                + ", link='" + link
+                + ", text='" + description + '\''
+                + ", link='" + link + '\''
+                + ", id='"   + id
                 + '}';
     }
 }

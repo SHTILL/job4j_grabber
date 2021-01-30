@@ -1,7 +1,5 @@
 package ru.job4j.grabber;
 
-import ru.job4j.quartz.AlertRabbit;
-
 import java.io.*;
 import java.sql.*;
 import java.util.ArrayList;
@@ -39,7 +37,7 @@ public class PsqlStore implements Store {
     public void save(Post post) {
         try (PreparedStatement ps = cn.prepareStatement("insert into post(name, text, link, created) values(?, ?, ?, ?)")) {
             ps.setString(1, post.getName());
-            ps.setString(2, post.getText());
+            ps.setString(2, post.getDescription());
             ps.setString(3, post.getLink());
             ps.setDate(4, new Date(post.getCreated().getTimeInMillis()));
             ps.executeUpdate();

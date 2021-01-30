@@ -15,10 +15,10 @@ public class DateParserTest {
 
     @Test
     public void checkDayMonthYear() {
-        String[][] dates = {    { "2 дек 19, 22:29", dateFormat(new Date(2019 - 1900, Calendar.DECEMBER, 2, 22, 29)) },
-                                {"25 июн 18, 21:56", dateFormat(new Date(2018 - 1900, Calendar.JUNE, 25, 21, 56))},
-                                {"22 янв 16, 10:56", dateFormat(new Date(2016 - 1900, Calendar.JANUARY, 22, 10, 56))},
-                                {"12 май 20, 08:17", dateFormat(new Date(2020 - 1900, Calendar.MAY, 12, 8, 17))} };
+        String[][] dates = {{"2 дек 19, 22:29", dateFormat(new Date(2019 - 1900, Calendar.DECEMBER, 2, 22, 29))},
+                            {"25 июн 18, 21:56", dateFormat(new Date(2018 - 1900, Calendar.JUNE, 25, 21, 56))},
+                            {"22 янв 16, 10:56", dateFormat(new Date(2016 - 1900, Calendar.JANUARY, 22, 10, 56))},
+                            {"12 май 20, 08:17", dateFormat(new Date(2020 - 1900, Calendar.MAY, 12, 8, 17))}};
 
         for (String[] date: dates) {
             String expectedDate = date[1];
@@ -41,8 +41,8 @@ public class DateParserTest {
         yesterday.set(Calendar.MINUTE, 23);
         yesterday.add(Calendar.DAY_OF_MONTH, -1);
 
-        String[][] dates = {    { "сегодня, 02:30", dateFormat(today.getTime()) },
-                                { "вчера, 19:23",   dateFormat(yesterday.getTime())} };
+        String[][] dates = {{"сегодня, 02:30", dateFormat(today.getTime()) },
+                            {"вчера, 19:23",   dateFormat(yesterday.getTime())} };
 
         for (String[] date: dates) {
             String expectedDate = date[1];
