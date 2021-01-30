@@ -112,7 +112,7 @@
           <configuration>
             <archive>
               <manifest>
-                <mainClass>ru.job4j.quartz.AlertRabbit</mainClass>
+                <mainClass>ru.job4j.grabber.Grabber</mainClass>
               </manifest>
             </archive>
           </configuration>

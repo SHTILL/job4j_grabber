@@ -35,7 +35,7 @@ public class PsqlStore implements Store {
 
     @Override
     public void save(Post post) {
-        try (PreparedStatement ps = cn.prepareStatement("insert into post(name, text, link, created) values(?, ?, ?, ?)")) {
+        try (PreparedStatement ps = cn.prepareStatement("insert into post(name, description, link, created) values(?, ?, ?, ?)")) {
             ps.setString(1, post.getName());
             ps.setString(2, post.getDescription());
             ps.setString(3, post.getLink());
@@ -54,10 +54,10 @@ public class PsqlStore implements Store {
             while (res.next()) {
                 Calendar calendar = java.util.Calendar.getInstance();
                 calendar.setTime(new java.util.Date(res.getDate("created").getTime()));
-                Post post = new Post(res.getString("name"),
-                        res.getString("text"),
-                        res.getString("link"),
-                        calendar);
+                Post post = new Post(res.getInt("id"),
+                        res.getString("name"),
+                        res.getString("description"),
+                        res.getString("link"), calendar);
                 list.add(post);
             }
         } catch (SQLException e) {
@@ -75,10 +75,10 @@ public class PsqlStore implements Store {
             if (res.next()) {
                 Calendar calendar = java.util.Calendar.getInstance();
                 calendar.setTime(new java.util.Date(res.getDate("created").getTime()));
-                return new Post(res.getString("name"),
-                        res.getString("text"),
-                        res.getString("link"),
-                        calendar);
+                return new Post(res.getInt("id"),
+                        res.getString("name"),
+                        res.getString("description"),
+                        res.getString("link"), calendar);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -110,9 +110,9 @@ public class PsqlStore implements Store {
         }
         try (Store s = new PsqlStore(cfg)) {
             Calendar c = Calendar.getInstance();
-            s.save(new Post("Name1", "Text1", "Link1", c));
-            s.save(new Post("Name2", "Text2", "Link2", c));
-            s.save(new Post("Name3", "Text3", "Link1", c));
+            s.save(new Post(0, "Name1", "Text1", "Link1", c));
+            s.save(new Post(0, "Name2", "Text2", "Link2", c));
+            s.save(new Post(0, "Name3", "Text3", "Link1", c));
             System.out.println(s.getAll());
             System.out.println(s.findById("2"));
         } catch (Exception e) {
