@@ -20,7 +20,7 @@ public class SqlRuParse implements Parse {
             Elements topics = doc.select(".postslisttopic");
             for (int i = 3; i < topics.size(); i++) {
                 Element href = topics.get(i).child(0);
-                ads.add(new Post(href.text(), null, href.attr("href"), null));
+                ads.add(new Post(0, href.text(), null, href.attr("href"), null));
             }
         } catch (IOException e) {
             System.out.printf("Error while connecting to the link %s" + System.lineSeparator(), adsLink + page);
@@ -38,7 +38,7 @@ public class SqlRuParse implements Parse {
             Elements footerElements = postDoc.getElementsByClass("msgFooter");
             Element createdElement = footerElements.get(0);
             String created = createdElement.ownText().replaceAll(" \\[] \\|$", "");
-            return new Post(null, description, null, DateParser.parseDateString(created));
+            return new Post(0, null, description, null, DateParser.parseDateString(created));
         } catch (IOException e) {
             System.out.printf("Error while connecting to the link %s" + System.lineSeparator(), link);
         }
